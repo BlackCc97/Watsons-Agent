@@ -5,7 +5,6 @@ const dashboardRankingList = document.getElementById("dashboardRankingList");
 const dashboardIssueList = document.getElementById("dashboardIssueList");
 const dashboardStructureValue = document.getElementById("dashboardStructureValue");
 const dashboardTimeValue = document.getElementById("dashboardTimeValue");
-const dashboardBreadcrumb = document.getElementById("dashboardBreadcrumb");
 const dashboardDrillBack = document.querySelector(".dashboard-drill-back");
 const dashboardIdentityChoices = document.getElementById("dashboardIdentityChoices");
 const dashboardPersonnelList = document.getElementById("dashboardPersonnelList");
@@ -236,18 +235,16 @@ let activeTaskId = null;
 
 const dashboardRankingData = {
   coverage: [
-    ["华东大区", "99%", "82 家应访店", "high"],
-    ["华南大区", "96%", "71 家应访店", "high"],
-    ["华北大区", "91%", "58 家应访店", "medium"],
-    ["西南大区", "87%", "46 家应访店", "medium"],
-    ["东北大区", "82%", "35 家应访店", "low"],
+    ["张小明", "99%", "82 家应访店", "high"],
+    ["Linney", "96%", "71 家应访店", "high"],
+    ["李四", "91%", "58 家应访店", "medium"],
+    ["王洋", "87%", "46 家应访店", "medium"],
   ],
   rectification: [
-    ["华东大区", "88%", "完成 108 项", "high"],
-    ["华南大区", "76%", "完成 64 项", "medium"],
-    ["华北大区", "69%", "完成 52 项", "medium"],
-    ["西南大区", "61%", "完成 38 项", "low"],
-    ["东北大区", "54%", "完成 24 项", "low"],
+    ["张小明", "88%", "完成 108 项", "high"],
+    ["Linney", "76%", "完成 64 项", "medium"],
+    ["李四", "69%", "完成 52 项", "medium"],
+    ["王洋", "61%", "完成 38 项", "low"],
   ],
 };
 
@@ -342,9 +339,6 @@ function renderDashboard() {
   if (!dashboardPage) return;
   if (dashboardStructureValue) dashboardStructureValue.textContent = dashboardStructureLabel(dashboardArchitecture);
   if (dashboardTimeValue) dashboardTimeValue.textContent = dashboardTimeLabel(dashboardFilters);
-  if (dashboardBreadcrumb) {
-    dashboardBreadcrumb.textContent = dashboardDrillLevel === 0 ? "当前层级：下属 CM" : "华东大区 > 下属 CM";
-  }
   if (dashboardDrillBack) dashboardDrillBack.hidden = dashboardDrillLevel === 0;
   if (dashboardRankingList) {
     dashboardRankingList.innerHTML = dashboardRankingData[dashboardRankingView]
